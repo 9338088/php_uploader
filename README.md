@@ -1,2 +1,2 @@
 # php_uploader
-easy to use safe and simple php uploader
+easy to use php uploader
