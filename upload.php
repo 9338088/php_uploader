@@ -8,7 +8,7 @@ if (isset($_POST["submit"])) {
 		echo "Invalid username or password.";
 		exit();
 	}
-	$targetDir = "uploads/dirty/";
+	$targetDir = "uploads/";
 	$targetFile = $targetDir . basename($_FILES["fileToUpload"]["name"]);
 	$uploadOk = 1;
 	$fileType = strtolower(pathinfo($targetFile,PATHINFO_EXTENSION));
