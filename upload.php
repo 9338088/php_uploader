@@ -1,6 +1,6 @@
 <?php
-$username = "admin";
-$password = "jbdjbd";
+$username = "user";
+$password = "password";
 
 if (isset($_POST["submit"])) {
 	// Check if username and password are correct
