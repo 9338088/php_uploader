@@ -49,9 +49,7 @@ function uploadFile($targetDirectory, $targetFile)
 
     // Try to upload file
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $targetFile)) {
-        return "The file " .
-            basename($_FILES["fileToUpload"]["name"]) .
-            " has been uploaded.";
+        return "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
     } else {
         http_response_code(500);
         return "Error uploading file.";
@@ -60,10 +58,10 @@ function uploadFile($targetDirectory, $targetFile)
 
 // Check if file was uploaded
 if (isset($_FILES["fileToUpload"])) {
-    // Upload file
-    $targetDirectory = "uploads/dirty/";
+    // Get folder name from form input
+    $folderName = isset($_POST['folder']) ? trim($_POST['folder']) : '';
+    $targetDirectory = "uploads/" . $folderName . "/";
     $targetFile = $targetDirectory . basename($_FILES["fileToUpload"]["name"]);
-
     $message = uploadFile($targetDirectory, $targetFile);
     header("Location: index.php?message=" . urlencode($message));
     exit();
@@ -73,4 +71,3 @@ if (isset($_FILES["fileToUpload"])) {
     header("Location: index.php?message=" . urlencode($message));
     exit();
 }
-?>
